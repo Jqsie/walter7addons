@@ -32,6 +32,15 @@ class Settings {
     muteOwnSteps = false;
 
     @SwitchProperty({
+        name: "Better Tab",
+        description: "removes header and footer on tab (requires lobby swap after disabling)",
+        category: "QoL",
+        subcategory: "Better Tab",
+        placeholder: 'Activate'
+    })
+    betterTab = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",
