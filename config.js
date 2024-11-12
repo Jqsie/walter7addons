@@ -1,4 +1,4 @@
-import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, @SelectorProperty, @CheckboxProperty, Color } from 'Vigilance';
+import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, @SelectorProperty, @CheckboxProperty, @SliderProperty, Color } from 'Vigilance';
 
 @Vigilant("walter7addons", "walter7addons")
 class Settings {
@@ -48,6 +48,25 @@ class Settings {
         placeholder: 'Activate'
     })
     rageInDungeons = false;
+
+    @SwitchProperty({
+        name: "Dynamic FOV",
+        description: "makes your fov zoom in and out heaps (might give u a headache)",
+        category: "Random",
+        subcategory: "Dynamic FOV",
+        placeholder: 'Activate'
+    })
+    dynamicFOV = false;
+
+    @SliderProperty({
+        name: "Normal FOV",
+        description: "set this to ur usual FOV (should detect it on first install?)",
+        category: "Random",
+        subcategory: "Dynamic FOV",
+        min: 30,
+        max: 120
+    })
+    previousFOV = Client.settings.getFOV();
 
     @SwitchProperty({
         name: "Fishing Timer",

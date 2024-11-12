@@ -5,6 +5,7 @@ import './diep/musicDisc'
 import './diep/muteOwnSteps'
 import './diep/rageOnDeath'
 import './diep/fishingTimer'
+import './diep/dynamicFOV'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
