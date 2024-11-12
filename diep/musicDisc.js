@@ -1,5 +1,4 @@
 import Settings from "../config";
-import { registerWhen } from "../whoiy/helperFunctions";
 
 const records = ["records.11", "records.13", "records.blocks", "records.cat", 
     "records.chirp", "records.far", "records.mall", "records.mellohi", "records.stal",
