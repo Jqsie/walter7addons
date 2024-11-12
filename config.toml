@@ -44,6 +44,9 @@
 
 [qol]
 
+	[qol.better_tab]
+		better_tab = false
+
 	[qol.mute_own_steps]
 		mute_own_steps = false
 
