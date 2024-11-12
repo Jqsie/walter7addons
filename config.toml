@@ -1,0 +1,45 @@
+
+[general]
+
+	[general.music_disc]
+		music_disc = false
+
+	[general.fishing_timer]
+		fishing_timer = false
+		fishing_timer_size = 2
+
+	[general.category]
+		color_picker = "255,255,0,0"
+
+	[general.rage_on_death]
+		rage_in_dungeons = false
+		rage_on_death = false
+
+	[general.mute_own_steps]
+		mute_own_steps = false
+
+[random]
+
+	[random.music_disc]
+		music_disc = false
+
+	[random.rage_on_death]
+		rage_in_dungeons = false
+		rage_on_death = false
+
+[music_disc]
+
+	[music_disc.music_disc]
+		music_disc = false
+
+[skyblock]
+
+	[skyblock.fishing_timer]
+		fishing_timer = false
+		fishing_timer_size = 0
+
+[qol]
+
+	[qol.mute_own_steps]
+		mute_own_steps = false
+
