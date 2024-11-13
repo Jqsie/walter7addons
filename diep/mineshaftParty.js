@@ -40,10 +40,6 @@ register("chat", (diep) => {
 }).setCriteria("!c").setContains();
 
 register("chat", (diep) => {
-    lapisMineshaft();
-}).setCriteria("hello!").setContains();
-
-register("chat", (diep) => {
     dontWarp = false
     corpsesDetected = false
     console.log("warping on")

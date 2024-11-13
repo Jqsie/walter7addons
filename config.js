@@ -68,6 +68,15 @@ class Settings {
     jumpBoostReminder = false;
 
     @SwitchProperty({
+        name: "Mining Fatigue Reminder",
+        description: "plays a sound when you get and are about to run out of mining fatigue trap (bedwars)",
+        category: "QoL",
+        subcategory: "Mining Fatigue Reminder",
+        placeholder: 'Activate'
+    })
+    miningFatigueReminder = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",
