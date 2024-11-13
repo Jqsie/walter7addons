@@ -28,8 +28,8 @@
 		music_disc = false
 
 	[random.rage_on_death]
-		rage_in_dungeons = true
-		rage_on_death = true
+		rage_in_dungeons = false
+		rage_on_death = false
 
 [music_disc]
 
@@ -47,6 +47,9 @@
 		mineshaft_party = true
 
 [qol]
+
+	[qol.slumber_hotel]
+		slumber_hotel = true
 
 	[qol.lucky_block_enhancements]
 		lucky_block_enhancements = false

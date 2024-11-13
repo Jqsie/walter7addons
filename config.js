@@ -77,6 +77,15 @@ class Settings {
     miningFatigueReminder = false;
 
     @SwitchProperty({
+        name: "Slumber Hotel",
+        description: "keeps your mouse in the correct spot when using the ticket machine and some npcs (MAKE SURE YOU'RE IN FULLSCREEN 1080P + LARGE GUI SCALE)",
+        category: "QoL",
+        subcategory: "Slumber Hotel",
+        placeholder: 'Activate'
+    })
+    slumberHotel = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",
