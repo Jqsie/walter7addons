@@ -41,6 +41,15 @@ class Settings {
     betterTab = false;
 
     @SwitchProperty({
+        name: "Lucky Block Enhancements",
+        description: "does a few things to make lucky block skywars more clean (will separate features later)",
+        category: "QoL",
+        subcategory: "Lucky Block Enhancements",
+        placeholder: 'Activate'
+    })
+    luckyBlockFix = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",
