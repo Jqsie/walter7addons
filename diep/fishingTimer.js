@@ -17,16 +17,6 @@ display.setRenderLoc((Renderer.screen.getWidth() - display.getWidth())/ 2.0, Ren
 
 var textSize = (Settings.fishingTimerSize + 1);
 
-// register('command', (diep) => {
-//   if (diep) {
-//     textSize = diep;
-//   } else {
-//     textSize = 1.0;
-//   }
-//  
-// }).setName('diepsize');
-
-
 register('renderWorld', () => {
   if (Settings.fishingTimer) {
     let found = false;

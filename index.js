@@ -12,6 +12,7 @@ import './diep/mineshaftParty'
 import './diep/arrowExpire'
 import './diep/potionExpire'
 import './diep/miningFatigue'
+import './diep/slumberHotel'
 
 register("command", () => Settings.openGUI()).setName("walter");
 

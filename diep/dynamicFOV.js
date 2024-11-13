@@ -1,7 +1,7 @@
 import Settings from '../config';
 
 var t = 0.0;
-var movingFOV = false;
+let movingFOV = false;
 
 register("step", (diep) => {
     if (Settings.dynamicFOV) {
@@ -14,6 +14,6 @@ register("step", (diep) => {
 register("step", (diep) => {
     if (movingFOV && !Settings.dynamicFOV) {
         Client.settings.setFOV(Settings.previousFOV)
-        var movingFOV = false
+        movingFOV = false
     }
 })
