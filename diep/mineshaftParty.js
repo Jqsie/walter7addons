@@ -16,6 +16,7 @@ function lapisMineshaft() {
             ChatLib.command(`p warp`)
         } else if (dontWarp) {
             ChatLib.command(`pc [W7] Warp aborted.`)
+            dontWarp = false
         }
     }).start()
 }
@@ -28,8 +29,9 @@ function vanguardMineshaft() {
         Thread.sleep(5000)
         if (!dontWarp) {
             ChatLib.command(`p warp`)
-        } else if (dontwarp) {
+        } else if (dontWarp) {
             ChatLib.command(`pc [W7] Warp aborted.`)
+            dontWarp = false
         }
     }).start()
 }
@@ -37,7 +39,7 @@ function vanguardMineshaft() {
 register("chat", (diep) => {
     dontWarp = true
     console.log("warping off")
-}).setCriteria("!c").setContains();
+}).setCriteria(": !c").setContains();
 
 register("chat", (diep) => {
     dontWarp = false
@@ -72,21 +74,20 @@ register("renderWorld", () => {
             }
         }
     
-    if (lapis == 2 || lapis == 4) {
-        if (Settings.mineshaftPartySetting == 0 || Settings.mineshaftPartySetting == 2) {
-            lapis = 0
-            vanguard = 0
-            corpses = 0
-            corpsesDetected = true
-            lapisMineshaft();
-    }} else if (vanguard == 1 && Settings.mineshaftPartySetting == 1) {
-            lapis = 0
-            vanguard = 0
-            corpses = 0
-            corpsesDetected = true
-            vanguardMineshaft();
+    if ((lapis == 2 || lapis == 4) && (Settings.mineshaftPartySetting == 0 || Settings.mineshaftPartySetting == 2)) {
+        lapis = 0
+        vanguard = 0
+        corpses = 0
+        corpsesDetected = true
+        lapisMineshaft();
+    } else if (vanguard == 1 && (Settings.mineshaftPartySetting == 1 || Settings.mineshaftPartySetting == 2)) {
+        lapis = 0
+        vanguard = 0
+        corpses = 0
+        corpsesDetected = true
+        vanguardMineshaft();
     } else if (corpses == 0 && Settings.mineshaftParty == 1) {
-            corpsesDetected = false
+        corpsesDetected = false
     } else {
         lapis = 0
         vanguard = 0
