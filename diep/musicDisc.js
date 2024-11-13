@@ -14,7 +14,3 @@ register("worldLoad", () => {
         }).start()
     }
   })
-
-function stopMusicDisc() {
-    World.stopAllSounds()
-}

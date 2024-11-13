@@ -13,13 +13,13 @@ class Settings {
 
     @ButtonProperty({
         name: "Stop Current Music Disc",
-        description: "stops the current music disc (CRASHES YOUR GAME RN FIX LATER)",
+        description: "stops the current music disc (actually just cuts off every sound)",
         category: "Random",
         subcategory: "Music Disc",
         placeholder: "Activate"
     })
     musicDiscButton() {
-        stopMusicDisc();
+        World.stopAllSounds()
     }
 
     @SwitchProperty({
