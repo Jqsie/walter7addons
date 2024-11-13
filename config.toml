@@ -22,10 +22,10 @@
 
 	[random.dynamic_fov]
 		dynamic_fov = false
-		normal_fov = 90
+		normal_fov = 100
 
 	[random.music_disc]
-		music_disc = true
+		music_disc = false
 
 	[random.rage_on_death]
 		rage_in_dungeons = false
@@ -44,16 +44,16 @@
 
 	[skyblock.mineshaft_party]
 		warp_settings = 2
-		mineshaft_party = true
+		mineshaft_party = false
 
 [qol]
 
 	[qol.lucky_block_enhancements]
-		lucky_block_enhancements = true
+		lucky_block_enhancements = false
 
 	[qol.better_tab]
-		better_tab = true
+		better_tab = false
 
 	[qol.mute_own_steps]
-		mute_own_steps = true
+		mute_own_steps = false
 
