@@ -8,6 +8,7 @@ import './diep/fishingTimer'
 import './diep/dynamicFOV'
 import './diep/betterTab'
 import './diep/luckyBlockFix'
+import './diep/mineshaftParty'
 
 register("command", () => Settings.openGUI()).setName("walter");
 

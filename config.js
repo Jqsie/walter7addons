@@ -120,7 +120,7 @@ class Settings {
         subcategory: 'Fishing Timer',
         options: ['small', 'medium', 'large', 'much larger'],
     })
-    fishingTimerSize = 0; // Stores index of option
+    fishingTimerSize = 0;
 
     constructor() {
         this.initialize(this);
