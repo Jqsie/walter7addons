@@ -42,6 +42,10 @@
 		fishing_timer = false
 		fishing_timer_size = 0
 
+	[skyblock.mineshaft_party]
+		warp_settings = 2
+		mineshaft_party = true
+
 [qol]
 
 	[qol.better_tab]

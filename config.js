@@ -86,6 +86,24 @@ class Settings {
     })
     fishingTimer = false;
 
+    @SwitchProperty({
+        name: "Mineshaft Party",
+        description: "detects the corpses in your mineshaft, and then warps your party if theres 3+ lapis or vanguard",
+        category: "Skyblock",
+        subcategory: "Mineshaft Party",
+        placeholder: 'Activate'
+    })
+    mineshaftParty = false;
+
+    @SelectorProperty({
+        name: 'Warp Settings',
+        description: 'which mineshafts you want to warp others in for',
+        category: 'Skyblock',
+        subcategory: 'Mineshaft Party',
+        options: ['lapis', 'vanguard', 'lapis + vanguard'],
+    })
+    mineshaftPartySetting = 0;
+
     @SelectorProperty({
         name: 'Fishing Timer Size',
         description: 'change the size of the text on screen',
@@ -93,7 +111,7 @@ class Settings {
         subcategory: 'Fishing Timer',
         options: ['small', 'medium', 'large', 'much larger'],
     })
-    fishingTimerSize = 0; // Stores index of option
+    fishingTimerSize = 0;
 
     constructor() {
         this.initialize(this);
