@@ -22,10 +22,10 @@
 
 	[random.dynamic_fov]
 		dynamic_fov = false
-		normal_fov = 100
+		normal_fov = 90
 
 	[random.music_disc]
-		music_disc = false
+		music_disc = true
 
 	[random.rage_on_death]
 		rage_in_dungeons = false
@@ -48,9 +48,12 @@
 
 [qol]
 
+	[qol.lucky_block_enhancements]
+		lucky_block_enhancements = true
+
 	[qol.better_tab]
-		better_tab = false
+		better_tab = true
 
 	[qol.mute_own_steps]
-		mute_own_steps = false
+		mute_own_steps = true
 
