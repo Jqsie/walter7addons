@@ -25,7 +25,7 @@
 		normal_fov = 100
 
 	[random.music_disc]
-		music_disc = false
+		music_disc = true
 
 	[random.rage_on_death]
 		rage_in_dungeons = false
@@ -41,6 +41,10 @@
 	[skyblock.fishing_timer]
 		fishing_timer = false
 		fishing_timer_size = 0
+
+	[skyblock.mineshaft_party]
+		warp_settings = 2
+		mineshaft_party = true
 
 [qol]
 
