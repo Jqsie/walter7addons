@@ -1,5 +1,7 @@
 import Settings from "../config";
 
+let inDungeon = false;
+
 var rages = [
     "0.ogg", "1.ogg", "2.ogg", "3.ogg", "4.ogg", "5.ogg", "6.ogg", "7.ogg", "8.ogg", "9.ogg", "10.ogg", "11.ogg",
     "12.ogg", "13.ogg", "14.ogg", "15.ogg", "16.ogg", "17.ogg",
@@ -40,7 +42,31 @@ register("chat", (diep) => {
 }).setCriteria("Queued! Use the bed to cancel!").setContains();
 
 register("chat", (diep) => {
-    if (Settings.rageInDungeons) {
+    if (Settings.rageInDungeons && inDungeon) {
         whoiyMEI();
     }
 }).setCriteria("☠").setContains();
+
+register("worldLoad", () => {
+    inDungeon = false;
+  });
+
+register("chat", () => {
+    if (findInScoreboard("The Cata")) {
+      inDungeon = true;
+    }
+  }).setCriteria("[NPC] Mort: Here").setContains();
+
+  function findInScoreboard(str) {
+    let found = false;
+    let lines = Scoreboard.getLines();
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i]) {
+        if ((ChatLib.removeFormatting(lines[i].toString()).search(str) != -1)) {
+          found = true;
+          return found;
+        }
+      }
+    }
+    return found;
+  }

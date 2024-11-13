@@ -28,8 +28,8 @@
 		music_disc = false
 
 	[random.rage_on_death]
-		rage_in_dungeons = false
-		rage_on_death = false
+		rage_in_dungeons = true
+		rage_on_death = true
 
 [music_disc]
 
@@ -44,7 +44,7 @@
 
 	[skyblock.mineshaft_party]
 		warp_settings = 2
-		mineshaft_party = false
+		mineshaft_party = true
 
 [qol]
 
@@ -58,7 +58,7 @@
 		out_of_arrows_reminder = false
 
 	[qol.jump_boost_reminder]
-		jump_boost_reminder = false
+		jump_boost_reminder = true
 
 	[qol.mining_fatigue_reminder]
 		mining_fatigue_reminder = true
