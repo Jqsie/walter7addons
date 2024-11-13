@@ -50,6 +50,24 @@ class Settings {
     luckyBlockFix = false;
 
     @SwitchProperty({
+        name: "Out of Arrows Reminder",
+        description: "plays a sound when you run out of arrows (not in skyblock)",
+        category: "QoL",
+        subcategory: "Out of Arrows Reminder",
+        placeholder: 'Activate'
+    })
+    noArrows = false;
+
+    @SwitchProperty({
+        name: "Jump Boost Reminder",
+        description: "plays a sound when you're about to run out of jump boost (bedwars)",
+        category: "QoL",
+        subcategory: "Jump Boost Reminder",
+        placeholder: 'Activate'
+    })
+    jumpBoostReminder = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",

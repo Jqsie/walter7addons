@@ -9,6 +9,8 @@ import './diep/dynamicFOV'
 import './diep/betterTab'
 import './diep/luckyBlockFix'
 import './diep/mineshaftParty'
+import './diep/arrowExpire'
+import './diep/potionExpire'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
