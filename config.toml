@@ -54,6 +54,15 @@
 	[qol.better_tab]
 		better_tab = false
 
+	[qol.out_of_arrows_reminder]
+		out_of_arrows_reminder = false
+
+	[qol.jump_boost_reminder]
+		jump_boost_reminder = false
+
+	[qol.mining_fatigue_reminder]
+		mining_fatigue_reminder = true
+
 	[qol.mute_own_steps]
 		mute_own_steps = false
 

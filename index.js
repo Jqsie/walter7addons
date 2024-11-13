@@ -11,10 +11,8 @@ import './diep/luckyBlockFix'
 import './diep/mineshaftParty'
 import './diep/arrowExpire'
 import './diep/potionExpire'
+import './diep/miningFatigue'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
 Settings.myColor = Color.RED;
-console.log(Settings.musicDisc)
-console.log(Settings.muteOwnSteps)
-console.log(Settings.rageOnDeath)
