@@ -2,7 +2,7 @@
 	"name": "walter7addons",
 	"creator": "diboof & Jqsie",
 	"description": "Growing grape and strawberry",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"entry": "index.js",
     "requires": ["Vigilance"]
 }
