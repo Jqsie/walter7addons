@@ -117,24 +117,6 @@ class Settings {
 
     // Random
     @SwitchProperty({
-        name: "Rage on Death",
-        description: "ragin at diep screamin whoiy mei",
-        category: "Random",
-        subcategory: "Rage on Death",
-        placeholder: 'Activate'
-    })
-    rageOnDeath = false;
-
-    @SwitchProperty({
-        name: "Rage in Dungeons",
-        description: "like noice this guy is just throwing my s+",
-        category: "Random",
-        subcategory: "Rage on Death",
-        placeholder: 'Activate'
-    })
-    rageInDungeons = false;
-
-    @SwitchProperty({
         name: "Dynamic FOV",
         description: "makes your fov zoom in and out heaps (might give u a headache)",
         category: "Random",
@@ -192,7 +174,6 @@ class Settings {
 
     constructor() {
         this.initialize(this);
-        this.addDependency("Rage in Dungeons", "Rage on Death")
         this.addDependency("Fishing Timer Size", "Fishing Timer")
         this.addDependency("Glyphs", "Remove Particles")
         this.addDependency("Sponge", "Remove Particles")
