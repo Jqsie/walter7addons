@@ -2,6 +2,7 @@ import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchPrope
 
 @Vigilant("walter7addons", "walter7addons")
 class Settings {
+    // RANDOM
     @SwitchProperty({
         name: "Music Disc",
         description: "play random music disc on world load",
@@ -22,10 +23,11 @@ class Settings {
         World.stopAllSounds()
     }
 
+    // Quality of Life
     @SwitchProperty({
         name: "Mute Own Steps",
         description: "mutes your own footsteps",
-        category: "QoL",
+        category: "Quality of Life",
         subcategory: "Mute Own Steps",
         placeholder: 'Activate'
     })
@@ -34,7 +36,7 @@ class Settings {
     @SwitchProperty({
         name: "Better Tab",
         description: "removes header and footer on tab (requires lobby swap after disabling)",
-        category: "QoL",
+        category: "Quality of Life",
         subcategory: "Better Tab",
         placeholder: 'Activate'
     })
@@ -43,16 +45,17 @@ class Settings {
     @SwitchProperty({
         name: "Lucky Block Enhancements",
         description: "does a few things to make lucky block skywars more clean (will separate features later)",
-        category: "QoL",
+        category: "Quality of Life",
         subcategory: "Lucky Block Enhancements",
         placeholder: 'Activate'
     })
     luckyBlockFix = false;
 
+    // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
         description: "plays a sound when you run out of arrows (not in skyblock)",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Out of Arrows Reminder",
         placeholder: 'Activate'
     })
@@ -61,7 +64,7 @@ class Settings {
     @SwitchProperty({
         name: "Jump Boost Reminder",
         description: "plays a sound when you're about to run out of jump boost (bedwars)",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Jump Boost Reminder",
         placeholder: 'Activate'
     })
@@ -70,7 +73,7 @@ class Settings {
     @SwitchProperty({
         name: "Mining Fatigue Reminder",
         description: "plays a sound when you get and are about to run out of mining fatigue trap (bedwars)",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Mining Fatigue Reminder",
         placeholder: 'Activate'
     })
@@ -79,7 +82,7 @@ class Settings {
     @SwitchProperty({
         name: "Slumber Hotel",
         description: "keeps your mouse in the correct spot when using the ticket machine and some npcs (MAKE SURE YOU'RE IN FULLSCREEN 1080P + LARGE GUI SCALE)",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Slumber Hotel",
         placeholder: 'Activate'
     })
@@ -88,7 +91,7 @@ class Settings {
     @SwitchProperty({
         name: "Remove Particles",
         description: "removes certain particles from bedwars",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Remove Particles",
         placeholder: 'Activate'
     })
@@ -97,7 +100,7 @@ class Settings {
     @SwitchProperty({
         name: "Glyphs",
         description: "removes the glyphs from emerald and diamond generators",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Remove Particles",
         placeholder: 'Activate'
     })
@@ -106,12 +109,13 @@ class Settings {
     @SwitchProperty({
         name: "Sponge",
         description: "removes sponge particles",
-        category: "QoL",
+        category: "Bedwars",
         subcategory: "Remove Particles",
         placeholder: 'Activate'
     })
     removeSponge = false;
 
+    // Random
     @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
@@ -149,6 +153,7 @@ class Settings {
     })
     previousFOV = Client.settings.getFOV();
 
+    // Skyblock
     @SwitchProperty({
         name: "Fishing Timer",
         description: "moves the fishing timer from above the bobber to the middle of your screen",
