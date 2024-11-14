@@ -1,4 +1,4 @@
 config.toml
 whoiy/renderUtil.js
-diep/blockHighlight.js
+features/blockHighlight.js
 whoiy/helperFunctions.js
