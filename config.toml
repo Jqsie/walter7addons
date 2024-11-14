@@ -51,6 +51,9 @@
 	[qol.slumber_hotel]
 		slumber_hotel = true
 
+	[qol.remove_particles]
+		remove_particles = false
+
 	[qol.lucky_block_enhancements]
 		lucky_block_enhancements = false
 
