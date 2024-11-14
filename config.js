@@ -86,6 +86,15 @@ class Settings {
     slumberHotel = false;
 
     @SwitchProperty({
+        name: "Remove Particles",
+        description: "removes the particles from glyphs and sponges",
+        category: "QoL",
+        subcategory: "Remove Particles",
+        placeholder: 'Activate'
+    })
+    removeParticles = false;
+
+    @SwitchProperty({
         name: "Rage on Death",
         description: "ragin at diep screamin whoiy mei",
         category: "Random",
