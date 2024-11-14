@@ -4,9 +4,6 @@ import Settings from '../config';
 const EntityArmorStandClass = Java.type(
   'net.minecraft.entity.item.EntityArmorStand'
 ).class;
-const EntityFishHookClass = Java.type(
-  'net.minecraft.entity.projectile.EntityFishHook'
-).class;
 
 
 const fishingTimerRegex = /^\d\.\d$/;

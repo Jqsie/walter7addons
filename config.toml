@@ -52,7 +52,9 @@
 		slumber_hotel = true
 
 	[qol.remove_particles]
-		remove_particles = false
+		remove_particles = true
+		sponge = true
+		glyphs = true
 
 	[qol.lucky_block_enhancements]
 		lucky_block_enhancements = false
