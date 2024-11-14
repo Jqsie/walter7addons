@@ -1,7 +1,7 @@
 # walter7addons
 ChatTriggers module with some random and sometimes helpful things
 ## Features
-**Bedwars**
+### Bedwars
 - Jump Boost Reminder
   - Plays a sound when your jump boost potion is about to run out.
 - Mining Fatigue Notifier
@@ -15,7 +15,7 @@ ChatTriggers module with some random and sometimes helpful things
  - Slumber Hotel Helper
    - Guides your mouse to the correct spots in certain menus.
 
-**Quality of Life**
+### Quality of Life
 - Better Tab
   - Removes the header and footer of the tab.
   - Makes tab look more clean for modes outside of Skyblock.
@@ -25,14 +25,14 @@ ChatTriggers module with some random and sometimes helpful things
 - Mute Own Steps
   - Mutes the stepping sounds that come from you. Makes it easier to focus on the footsteps around you.
  
-**Skyblock**
+### Skyblock
 - Fishing Timer
   - Moves the fishing timer from above the fishing hook to the middle of your screen.
 - Mineshaft Party
   - Automatically warps the party into your Mineshaft if you get 3-4 Lapis corpses or a Vanguard.
   - Requires party members to have !pt chat commands (not included in this).
 
-**Random**
+### Random
 - Dynamic FOV
   - Makes your FOV zoom in and out heaps (may give headaches, fun challenge).
 - Music Disc
