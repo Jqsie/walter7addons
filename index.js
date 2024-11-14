@@ -13,6 +13,8 @@ import './diep/arrowExpire'
 import './diep/potionExpire'
 import './diep/miningFatigue'
 import './diep/slumberHotel'
+import './diep/removeParticles'
+//import './diep/blockHighlight'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
