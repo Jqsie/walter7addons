@@ -1,20 +1,19 @@
 import Settings from "./config";
 import { Color } from "Vigilance";
 
-import './diep/musicDisc'
-import './diep/muteOwnSteps'
-import './diep/rageOnDeath'
-import './diep/fishingTimer'
-import './diep/dynamicFOV'
-import './diep/betterTab'
-import './diep/luckyBlockFix'
-import './diep/mineshaftParty'
-import './diep/arrowExpire'
-import './diep/potionExpire'
-import './diep/miningFatigue'
-import './diep/slumberHotel'
-import './diep/removeParticles'
-//import './diep/blockHighlight'
+import './features/musicDisc'
+import './features/muteOwnSteps'
+import './features/fishingTimer'
+import './features/dynamicFOV'
+import './features/betterTab'
+import './features/luckyBlockFix'
+import './features/mineshaftParty'
+import './features/arrowExpire'
+import './features/potionExpire'
+import './features/miningFatigue'
+import './features/slumberHotel'
+import './features/removeParticles'
+//import './features/blockHighlight'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
