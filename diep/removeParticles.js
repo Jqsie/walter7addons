@@ -37,6 +37,10 @@ register("chat", () => {
     }
   }).setCriteria("Protect your bed and destroy the enemy beds." || "You will respawn because you still have a bed!").setContains();
 
+register("worldLoad", () => {
+    inBedwarsGame = false;
+})
+
 register("chat", () => {
     entities = World.getAllEntities();
     console.log(entities)
