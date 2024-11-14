@@ -46,6 +46,36 @@
 		warp_settings = 2
 		mineshaft_party = true
 
+[bedwars]
+
+	[bedwars.slumber_hotel]
+		slumber_hotel = false
+
+	[bedwars.remove_particles]
+		remove_particles = false
+		sponge = false
+		glyphs = false
+
+	[bedwars.out_of_arrows_reminder]
+		out_of_arrows_reminder = false
+
+	[bedwars.jump_boost_reminder]
+		jump_boost_reminder = false
+
+	[bedwars.mining_fatigue_reminder]
+		mining_fatigue_reminder = false
+
+[quality_of_life]
+
+	[quality_of_life.lucky_block_enhancements]
+		lucky_block_enhancements = false
+
+	[quality_of_life.better_tab]
+		better_tab = false
+
+	[quality_of_life.mute_own_steps]
+		mute_own_steps = false
+
 [qol]
 
 	[qol.slumber_hotel]
