@@ -87,12 +87,30 @@ class Settings {
 
     @SwitchProperty({
         name: "Remove Particles",
-        description: "removes the particles from glyphs and sponges",
+        description: "removes certain particles from bedwars",
         category: "QoL",
         subcategory: "Remove Particles",
         placeholder: 'Activate'
     })
     removeParticles = false;
+
+    @SwitchProperty({
+        name: "Glyphs",
+        description: "removes the glyphs from emerald and diamond generators",
+        category: "QoL",
+        subcategory: "Remove Particles",
+        placeholder: 'Activate'
+    })
+    removeGlyphs = false;
+
+    @SwitchProperty({
+        name: "Sponge",
+        description: "removes sponge particles",
+        category: "QoL",
+        subcategory: "Remove Particles",
+        placeholder: 'Activate'
+    })
+    removeSponge = false;
 
     @SwitchProperty({
         name: "Rage on Death",
@@ -171,6 +189,8 @@ class Settings {
         this.initialize(this);
         this.addDependency("Rage in Dungeons", "Rage on Death")
         this.addDependency("Fishing Timer Size", "Fishing Timer")
+        this.addDependency("Glyphs", "Remove Particles")
+        this.addDependency("Sponge", "Remove Particles")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');
