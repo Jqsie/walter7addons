@@ -30,23 +30,27 @@ register("spawnParticle", (particle, type, event) => {
 })
 
 register("chat", () => {
-    title = Scoreboard.getTitle();
-    title = title.replace(/[a-z0-9§]/g, "");
-    if (title == "BED WARS") {
-      inBedwarsGame = true;
+    bedwarsCheck();
     }
-  }).setCriteria("Protect your bed and destroy the enemy beds." || "You will respawn because you still have a bed!").setContains();
+  ).setCriteria("Protect your bed and destroy the enemy beds.").setContains();
+
+  register("chat", () => {
+    bedwarsCheck();
+    }
+  ).setCriteria("You will respawn because you still have a bed!").setContains();
 
 register("worldLoad", () => {
     inBedwarsGame = false;
 })
 
-register("chat", () => {
-    entities = World.getAllEntities();
-    console.log(entities)
-}).setCriteria("hello!").setContains();
-
 register("step", () => {
     entities = World.getAllEntitiesOfType(EntityArmorStand.class).filter(a => a?.getName() == "Armor Stand" && a.isInvisible())
     players = World.getAllPlayers();
 }).setDelay(2);
+
+function bedwarsCheck () {
+    title = Scoreboard.getTitle();
+    title = title.replace(/[a-z0-9§]/g, "");
+    if (title == "BED WARS") {
+      inBedwarsGame = true;
+}}

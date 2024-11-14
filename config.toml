@@ -53,7 +53,7 @@
 
 	[qol.remove_particles]
 		remove_particles = true
-		sponge = false
+		sponge = true
 		glyphs = true
 
 	[qol.lucky_block_enhancements]
