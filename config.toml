@@ -44,7 +44,7 @@
 
 	[skyblock.mineshaft_party]
 		warp_settings = 2
-		mineshaft_party = true
+		mineshaft_party = false
 
 [bedwars]
 
@@ -52,18 +52,18 @@
 		slumber_hotel = false
 
 	[bedwars.remove_particles]
-		remove_particles = false
-		sponge = false
-		glyphs = false
+		remove_particles = true
+		sponge = true
+		glyphs = true
 
 	[bedwars.out_of_arrows_reminder]
-		out_of_arrows_reminder = false
+		out_of_arrows_reminder = true
 
 	[bedwars.jump_boost_reminder]
-		jump_boost_reminder = false
+		jump_boost_reminder = true
 
 	[bedwars.mining_fatigue_reminder]
-		mining_fatigue_reminder = false
+		mining_fatigue_reminder = true
 
 [quality_of_life]
 
@@ -71,10 +71,10 @@
 		lucky_block_enhancements = false
 
 	[quality_of_life.better_tab]
-		better_tab = false
+		better_tab = true
 
 	[quality_of_life.mute_own_steps]
-		mute_own_steps = false
+		mute_own_steps = true
 
 [qol]
 
