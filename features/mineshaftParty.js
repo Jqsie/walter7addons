@@ -74,18 +74,18 @@ register("renderWorld", () => {
             }
         }
     
-    if ((lapis == 2 || lapis == 4) && (Settings.mineshaftPartySetting == 0 || Settings.mineshaftPartySetting == 2)) {
-        lapis = 0
-        vanguard = 0
-        corpses = 0
-        corpsesDetected = true
+    if ((lapis == 3 || lapis == 4) && (Settings.mineshaftPartySetting == 0 || Settings.mineshaftPartySetting == 2)) {
         lapisMineshaft();
-    } else if (vanguard == 1 && (Settings.mineshaftPartySetting == 1 || Settings.mineshaftPartySetting == 2)) {
         lapis = 0
         vanguard = 0
         corpses = 0
         corpsesDetected = true
+    } else if (vanguard == 1 && (Settings.mineshaftPartySetting == 1 || Settings.mineshaftPartySetting == 2)) {
         vanguardMineshaft();
+        lapis = 0
+        vanguard = 0
+        corpses = 0
+        corpsesDetected = true
     } else if (corpses == 0 && Settings.mineshaftParty == 1) {
         corpsesDetected = false
     } else {
