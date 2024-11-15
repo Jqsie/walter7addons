@@ -30,14 +30,19 @@ register("spawnParticle", (particle, type, event) => {
 })
 
 register("chat", () => {
-    bedwarsCheck();
+    new Thread(() => {
+        Thread.sleep(1000);
+        bedwarsCheck();
+    }).start()
     }
-  ).setCriteria("Protect your bed and destroy the enemy beds.").setContains();
+  ).setCriteria("Protect your bed").setContains();
 
   register("chat", () => {
-    bedwarsCheck();
-    }
-  ).setCriteria("You will respawn because you still have a bed!").setContains();
+    new Thread(() => {
+        Thread.sleep(1000);
+        bedwarsCheck();
+    }).start()
+  }).setCriteria("You will respawn because you still have a bed!").setContains();
 
 register("worldLoad", () => {
     inBedwarsGame = false;
@@ -50,7 +55,7 @@ register("step", () => {
 
 function bedwarsCheck () {
     title = Scoreboard.getTitle();
-    title = title.replace(/[a-z0-9§]/g, "");
+    title = ChatLib.removeFormatting(title)
     if (title == "BED WARS") {
       inBedwarsGame = true;
 }}
