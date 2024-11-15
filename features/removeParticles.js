@@ -1,9 +1,7 @@
 import Settings from '../config';
 
 let inBedwarsGame = false
-let entities = [];
 let players = [];
-const EntityArmorStand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 
 register("spawnParticle", (particle, type, event) => {
     if (Settings.removeParticles) {
@@ -12,13 +10,11 @@ register("spawnParticle", (particle, type, event) => {
         }
 
         if (inBedwarsGame && type.toString() == "REDSTONE" && Settings.removeGlyphs) {
-            for (i = 0; i < entities.length; i++) {  
-                for (j = 0; j < players.length; j++) {
-                    if (entities[i].distanceTo(particle) < 7 && players[j].distanceTo(particle) > 3) {
-                        cancel(event);
-                        return;
-                    }                 
-                }
+            for (j = 0; j < players.length; j++) {
+                if (players[j].distanceTo(particle) > 3) {
+                    cancel(event);
+                    return;
+                }                 
             }
         }
 
@@ -49,7 +45,6 @@ register("worldLoad", () => {
 })
 
 register("step", () => {
-    entities = World.getAllEntitiesOfType(EntityArmorStand.class).filter(a => a?.getName() == "Armor Stand" && a.isInvisible())
     players = World.getAllPlayers();
 }).setDelay(2);
 
