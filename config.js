@@ -115,6 +115,15 @@ class Settings {
     })
     removeSponge = false;
 
+    @SwitchProperty({
+        name: "Emerald Timer",
+        description: "shows the time until next emerald spawn",
+        category: "Bedwars",
+        subcategory: "Emerald Timer",
+        placeholder: "Activate"
+    })
+    emeraldTimer = false;
+
     // Random
     @SwitchProperty({
         name: "Dynamic FOV",
