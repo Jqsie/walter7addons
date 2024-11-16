@@ -13,6 +13,10 @@ import './features/potionExpire'
 import './features/miningFatigue'
 import './features/slumberHotel'
 import './features/removeParticles'
+import './features/emeraldSpawn'
+import './features/invisibleShop'
+import './features/defusalHelper'
+import './features/blockDropping'
 //import './features/blockHighlight'
 
 register("command", () => Settings.openGUI()).setName("walter");

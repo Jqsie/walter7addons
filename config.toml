@@ -59,8 +59,19 @@
 	[bedwars.out_of_arrows_reminder]
 		out_of_arrows_reminder = true
 
+	[bedwars.block_item_dropping]
+		block_item_dropping = true
+		bows = true
+		swords = true
+
 	[bedwars.jump_boost_reminder]
 		jump_boost_reminder = true
+
+	[bedwars.defusal_helper]
+		defusal_helper = true
+
+	[bedwars.emerald_timer]
+		emerald_timer = true
 
 	[bedwars.mining_fatigue_reminder]
 		mining_fatigue_reminder = true
