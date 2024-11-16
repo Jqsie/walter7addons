@@ -62,6 +62,9 @@
 	[bedwars.jump_boost_reminder]
 		jump_boost_reminder = true
 
+	[bedwars.emerald_timer]
+		emerald_timer = true
+
 	[bedwars.mining_fatigue_reminder]
 		mining_fatigue_reminder = true
 
