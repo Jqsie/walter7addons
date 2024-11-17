@@ -12,8 +12,10 @@ ChatTriggers module with some random and sometimes helpful things
 - **Remove Particles**
   - Remove Particles from Glyphs and Sponges.
   - DRASTICALLY improves performance.
- - **Slumber Hotel Helper**
-   - Guides your mouse to the correct spots in certain menus.
+- **Slumber Hotel Helper**
+  - Guides your mouse to the correct spots in certain menus.
+- **Emerald Timer**
+  - Displays a timer on-screen that shows when the next emeralds will spawn and how many total emerald spawns there have been.
 
 ### Quality of Life
 - **Better Tab**
