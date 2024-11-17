@@ -43,4 +43,4 @@ register("guiMouseClick", (x, y, button, gui, event) => {
             }
         }
     }
-)
+})
