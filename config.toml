@@ -68,6 +68,8 @@
 		jump_boost_reminder = true
 
 	[bedwars.defusal_helper]
+		defusal_middle_clicks = false
+		block_incorrect_defusal_clicks = false
 		defusal_helper = true
 
 	[bedwars.invisible_shop]
