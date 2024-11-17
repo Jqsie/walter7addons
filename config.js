@@ -133,6 +133,49 @@ class Settings {
     })
     invisibleShop = false;
 
+    @SwitchProperty({
+        name: "Defusal Helper",
+        description: "highlights the correct items to click during the defusal challenge",
+        category: "Bedwars",
+        subcategory: "Defusal Helper",
+        placeholder: "Activate"
+    })
+    defusalHelper = false;
+
+    @SwitchProperty({
+        name: "Block Incorrect Defusal Clicks",
+        description: "blocks incorrect clicks (most of the time)",
+        category: "Bedwars",
+        subcategory: "Defusal Helper",
+        placeholder: "Activate"
+    })
+    defusalBlockClicks = false;
+
+    @SwitchProperty({
+        name: "Block Item Dropping",
+        description: "blocks you from dropping certain items",
+        category: "Bedwars",
+        subcategory: "Block Item Dropping",
+        placeholder: "Activate"
+    })
+    blockDropping = false;
+
+    @SwitchProperty({
+        name: "Swords",
+        category: "Bedwars",
+        subcategory: "Block Item Dropping",
+        placeholder: "Activate"
+    })
+    blockSwords = false;
+
+    @SwitchProperty({
+        name: "Bows",
+        category: "Bedwars",
+        subcategory: "Block Item Dropping",
+        placeholder: "Activate"
+    })
+    blockBows = false;
+
     // Random
     @SwitchProperty({
         name: "Dynamic FOV",
@@ -195,6 +238,7 @@ class Settings {
         this.addDependency("Fishing Timer Size", "Fishing Timer")
         this.addDependency("Glyphs", "Remove Particles")
         this.addDependency("Sponge", "Remove Particles")
+        this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');
