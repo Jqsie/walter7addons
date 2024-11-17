@@ -143,6 +143,15 @@ class Settings {
     defusalHelper = false;
 
     @SwitchProperty({
+        name: "Defusal Middle Clicks",
+        description: "replaces left clicks with middles clicks in the gui (registers better for high ping)",
+        category: "Bedwars",
+        subcategory: "Defusal Helper",
+        placeholder: "Activate"
+    })
+    defusalMiddleClick = false;
+
+    @SwitchProperty({
         name: "Block Incorrect Defusal Clicks",
         description: "blocks incorrect clicks (most of the time)",
         category: "Bedwars",
@@ -239,6 +248,7 @@ class Settings {
         this.addDependency("Glyphs", "Remove Particles")
         this.addDependency("Sponge", "Remove Particles")
         this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")
+        this.addDependency("Defusal Middle Clicks", "Defusal Helper")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');
