@@ -35,12 +35,11 @@ register("guiMouseClick", (x, y, button, gui, event) => {
         const slot = Client.currentGui.getSlotUnderMouse();
         if (slot != null) {
             const item = slot.getItem();
-            if (item != null && item.getRegistryName() != "minecraft:redstone" && inv.name === '§cC4 (Click §4§lREDSTONE§c)') {
+            if (item != null && item.getRegistryName() != "minecraft:redstone" && inv.name === '§cC4 (Click §4§lREDSTONE§c)' && Settings.defusalBlockClicks) {
                 cancel(event)
             } else if (item != null && item.getRegistryName() === "minecraft:redstone" && inv.name === '§cC4 (Click §4§lREDSTONE§c)') {
                 cancel(event)
-                inv.click(slot.getIndex(), false, "MIDDLE")
-            }
+                if (Settings.defusalMiddleClick) inv.click(slot.getIndex(), false, "MIDDLE")
             }
         }
     }
