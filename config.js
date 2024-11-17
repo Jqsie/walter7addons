@@ -124,6 +124,15 @@ class Settings {
     })
     emeraldTimer = false;
 
+    @SwitchProperty({
+        name: "Invisible Shop",
+        description: "reveals items after they are purchased during the invisible shop challenge",
+        category: "Bedwars",
+        subcategory: "Invisible Shop",
+        placeholder: "Activate"
+    })
+    invisibleShop = false;
+
     // Random
     @SwitchProperty({
         name: "Dynamic FOV",
