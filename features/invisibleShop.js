@@ -1,38 +1,51 @@
 import Settings from '../config';
 
 let inBedwarsGame = false;
-let slotToReplace = -1;
 
 let unknownSlots = [
     19, 20, 21, 22, 23, 24, 25,
     28, 29, 30, 31, 32, 33, 34,
     37, 38, 39, 40, 41, 42, 43,
 ]
-
 let foundItemsPage1 = Array(21).fill("dye")
 let foundItemsPage2 = Array(14).fill("dye")
 let slotsPage1 = unknownSlots;
 let slotsPage2 = slotsPage1.slice(0, 14);
+
+let slotToReplace = 19; // there is no item in this slot
 let indexOfSlotInList = -1;
 let currentPage = 0;
+
+let purchasableIndexes = []
 
 register("guiMouseClick", (x, y, button, gui, event) => {
     if (Settings.invisibleShop && inBedwarsGame) {
         let container = Player.getContainer();
-        
-        if (container.getName() == "Invisible Item Shop") {
+        if (container && container.getName() == "Invisible Item Shop") {
             new Thread(() => {
                 Thread.sleep(20);
-                
-                for (i = 0; i < unknownSlots.length; i++) {
-                    if (!container.getStackInSlot(unknownSlots[i])) {
-                        slotToReplace = unknownSlots[i];
-                        indexOfSlotInList = i;
-                        break;
+                if (container.getName() != "Invisible Item Shop") { // make sure the shop is still open
+                    return
+                }
+
+                if (currentPage == 1) {
+                    for (let k = 0; k < slotsPage1.length; k++) {
+                        if (typeof slotsPage1[k] != 'undefined' && !container.getStackInSlot(slotsPage1[k])) {
+                            slotToReplace = slotsPage1[k];
+                            indexOfSlotInList = k;
+                            break;
+                        }
                     }
                 }
-                Thread.sleep(250);
-                setKnownItems();
+                else if (currentPage == 2) {
+                    for (let l = 0; l < slotsPage2.length; l++) {
+                        if (typeof slotsPage2[l] != 'undefined' && !container.getStackInSlot(slotsPage2[l])) {
+                            slotToReplace = slotsPage2[l];
+                            indexOfSlotInList = l;
+                            break;
+                        }
+                    }
+                }
             }).start()
         }
     }
@@ -46,38 +59,115 @@ register("chat", (item) => {
             let hiddenItem = container.getStackInSlot(slotToReplace);
             if (hiddenItem) {
                 let mcItemName = convertItemName(item);
-                if (currentPage == 1) {
+                if (currentPage == 1 && foundItemsPage1[indexOfSlotInList] == "dye") {
                     foundItemsPage1[indexOfSlotInList] = mcItemName;
-                    print(mcItemName);
                 }
-                else if (currentPage == 2) {
+                else if (currentPage == 2 && foundItemsPage2[indexOfSlotInList] == "dye") {
                     foundItemsPage2[indexOfSlotInList] = mcItemName;
                 }
             }
-            
-            //container.getContainer(func_70299_a(slotToReplace, new Item("wool")));
-            
         }).start()
     }
     
 }).setCriteria("You purchased ${item}")
 
-register("guiOpened", () => {
-    new Thread(() => {
-        Thread.sleep(50);
-        if (Player.getContainer().getName() == "Invisible Item Shop") {
-            let arrowIndex = Player.getContainer().indexOf(262);
-            if (arrowIndex == 53) {
+register("chat", (resource, amount) => {
+    slotToReplace = 19;
+    indexOfSlotInList = -1;
+}).setCriteria("You don't have enough ${resource}! Need ${amount} more!");
+
+register("chat", () => {
+    slotToReplace = 19;
+    indexOfSlotInList = -1;
+}).setCriteria("You've already purchased this item!");
+
+
+register("guiRender", (x, y, gui) => {
+    if (Settings.invisibleShop && inBedwarsGame && Player.getContainer()) {
+        let container = Player.getContainer()
+        if (container.getName() == "Invisible Item Shop") {
+            if (container.getStackInSlot(53)) {
                 currentPage = 1
             }
-            else if (arrowIndex == 45) {
+            else if (container.getStackInSlot(45)) {
                 currentPage = 2
             }
+            else {
+                currentPage = 0
+            }
             setKnownItems();
+            setPurchasableItems();
         }
-    }).start()
-    
-});
+    }
+})
+
+register("guiOpened", (event) => {
+    if (Settings.invisibleShop && inBedwarsGame && Player.getContainer()) {
+        new Thread(() => {
+            Thread.sleep(20);
+            let container = Player.getContainer()
+            if (container.getName() == "Invisible Item Shop") {
+                if (currentPage == 1) {
+                    purchasableIndexes = []
+                    for (let i = 0; i < slotsPage1.length; i++) {
+                        let lore = container.getStackInSlot(slotsPage1[i]).getLore()[5];
+                        print(lore);
+                    }
+                }
+                else if (currentPage == 2) {
+                    let a = 3
+                }
+
+            }
+        }).start()
+    }
+})
+
+
+
+function highlightItem(x, y, highlightColor) {
+    Renderer.translate(0, 0, 0)
+    Renderer.drawRect(highlightColor, x, y, 16, 16)
+  }
+
+register('renderItemIntoGui', (item, x, y) => {
+    const inv = Player.getContainer();
+    if (Settings.invisibleShop && inv.name == 'Invisible Item Shop') {
+        if (item.getLore()[5] == "§5§o§eClick to purchase!") {
+            highlightItem(x, y, Renderer.GREEN)
+        }
+        else if (item.getLore()[3] == "§5§o§eClick to purchase!") {
+            highlightItem(x, y, Renderer.GREEN)
+        }
+        
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 register("chat", () => {
     new Thread(() => {
@@ -95,28 +185,39 @@ register("chat", () => {
   }).setCriteria("You will respawn because you still have a bed!").setContains();
 
 register("worldLoad", () => {
-    inBedwarsGame = false;
+    inBedwarsGame = true; // CHANGE BACK TO FALSE!
     foundItemsPage1 = Array(21).fill("dye")
     foundItemsPage2 = Array(14).fill("dye")
     slotsPage1 = unknownSlots;
     slotsPage2 = slotsPage1.slice(0, 14);
     indexOfSlotInList = -1;
     currentPage = 0;
+    arrowIndex = -1;
+    arrowPage = -1;
 });
 
 function setKnownItems() {
     if (currentPage == 1)
-        for (i = 0; i < foundItemsPage1.length; i++) {
-            if (foundItemsPage1[i] != "dye") {
+        for (let i = 0; i < foundItemsPage1.length; i++) {
+            if (foundItemsPage1[i] != "dye" && typeof foundItemsPage1[i] != 'undefined') {
                 Player.getContainer().getContainer().func_75141_a(slotsPage1[i], new Item(foundItemsPage1[i]).itemStack);
             }
         }
     else if (currentPage == 2) {
-        for (i = 0; i < foundItemsPage2.length; i++) {
-            if (foundItemsPage2[i] != "dye") {
+        for (let i = 0; i < foundItemsPage2.length; i++) {
+            if (foundItemsPage2[i] != "dye" && typeof foundItemsPage2[i] != 'undefined') {
                 Player.getContainer().getContainer().func_75141_a(slotsPage2[i], new Item(foundItemsPage2[i]).itemStack);
             }
         }
+    }
+}
+
+function setPurchasableItems() {
+    if (currentPage == 1) {
+
+    }
+    else if (currentPage == 2) {
+
     }
 }
 
@@ -128,131 +229,88 @@ function bedwarsCheck () {
 }}
 
 function convertItemName(x) {
-    let y = "minecraft:";
     switch(x) {
         case "Wool":
-            y += "wool"
-            break;
+            return "minecraft:wool"
         case "Hardened Clay":
-            y += "hardened_clay"
-            break;
+            return "minecraft:hardened_clay"
         case "Blast-Proof Glass":
-            y += "glass"
-            break;
+            return "minecraft:glass"
         case "End Stone":
-            y += "end_stone"
-            break;
+            return "minecraft:end_stone"
         case "Ladder":
-            y += "ladder"
-            break;
+            return "minecraft:ladder"
         case "Oak Wood Planks":
-            y += "planks"
-            break;
+            return "minecraft:planks"
         case "Obsidian":
-            y += "obsidian"
+            return "minecraft:obsidian"
         case "Stone Sword":
-            y += "stone_sword"
-            break;
+            return "minecraft:stone_sword"
         case "Iron Sword":
-            y += "iron_sword"
-            break;
+            return "minecraft:iron_sword"
         case "Diamond Sword":
-            y += "diamond_sword"
-            break;
+            return "minecraft:diamond_sword"
         case "Stick (Knockback I)":
-            y += "stick"
-            break;
+            return "minecraft:stick"
         case "Permanent Chainmail Armor":
-            y += "chainmail_boots"
-            break;
+            return "minecraft:chainmail_boots"
         case "Permanent Iron Armor":
-            y += "iron_boots"
-            break;
+            return "minecraft:iron_boots"
         case "Permanent Diamond Armor":
-            y += "diamond_boots"
-            break;
+            return "minecraft:diamond_boots"
         case "Permanent Shears":
-            y += "shears"
-            break;
+            return "minecraft:shears"
         case "Wooden Pickaxe (Efficiency I)":
-            y += "iron_pickaxe"
-            break;
+            return "minecraft:iron_pickaxe"
         case "Iron Pickaxe (Efficiency II)":
-            y += "golden_pickaxe"
-            break;
+            return "minecraft:golden_pickaxe"
         case "Gold Pickaxe (Efficiency III, Sharpness II)":
-            y += "diamond_pickaxe"
-            break;
+            return "minecraft:diamond_pickaxe"
         case "Diamond Pickaxe (Efficiency III)":
-            y += "diamond_pickaxe"
-            break;
+            return "minecraft:diamond_pickaxe"
         case "Wooden Axe (Efficiency I)":
-            y += "stone_axe"
-            break;
+            return "minecraft:stone_axe"
         case "Stone Axe (Efficiency I)":
-            y += "iron_axe"
-            break;
+            return "minecraft:iron_axe"
         case "Iron Axe (Efficiency II)":
-            y += "diamond_axe"
-            break;
+            return "minecraft:diamond_axe"
         case "Diamond Axe (Efficiency III)":
-            y += "diamond_axe"
-            break;
+            return "minecraft:diamond_axe"
         case "Arrow":
-            y += "arrow"
-            break;
+            return "minecraft:arrow"
         case "Bow":
-            y += "bow"
-            break;
+            return "minecraft:bow"
         case "Bow (Power I)":
-            y += "bow"
-            break;
+            return "minecraft:bow"
         case "Bow (Power I, Punch I)":
-            y += "bow"
-            break;
+            return "minecraft:bow"
         case "Speed II Potion (45 seconds)":
-            y += "potion"
-            break;
+            return "minecraft:potion"
         case "Jump V Potion (45 seconds)":
-            y += "potion"
-            break;
+            return "minecraft:potion"
         case "Invisibility Potion (30 seconds)":
-            y += "potion"
-            break;
+            return "minecraft:potion"
         case "Golden Apple":
-            y += "golden_apple"
-            break;
+            return "minecraft:golden_apple"
         case "Bedbug":
-            y += "snowball"
-            break;
+            return "minecraft:snowball"
         case "Dream Defender":
-            y += "spawn_egg"
-            break;
+            return "minecraft:spawn_egg"
         case "Fireball":
-            y += "fire_charge"
-            break;
+            return "minecraft:fire_charge"
         case "TNT":
-            y += "tnt"
-            break;
+            return "minecraft:tnt"
         case "Ender Pearl":
-            y += "ender_pearl"
-            break;
+            return "minecraft:ender_pearl"
         case "Water Bucket":
-            y += "water_bucket"
-            break;
+            return "minecraft:water_bucket"
         case "Bridge Egg":
-            y += "egg"
-            break;
+            return "minecraft:egg"
         case "Magic Milk":
-            y += "milk_bucket"
-            break;
+            return "minecraft:milk_bucket"
         case "Sponge":
-            y += "sponge"
-            break;
+            return "minecraft:sponge"
         case "Compact Pop-up Tower":
-            y += "chest"
-            break;
-    
+            return "minecraft:chest"
     }
-    return y;
 }
