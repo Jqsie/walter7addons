@@ -21,7 +21,7 @@ register('renderItemIntoGui', (item, x, y) => {
 })
 
 register("guiMouseClick", (x, y, button, gui, event) => {
-    if (Settings.defusalHelper) {
+    if (Settings.defusalHelper && !Settings.defusalCustomGui) {
         const inv = Player.getContainer();
         const slot = Client.currentGui.getSlotUnderMouse();
         if (slot != null) {
