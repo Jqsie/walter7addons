@@ -16,7 +16,6 @@ let slotToReplace = 19; // there is no item in this slot
 let indexOfSlotInList = -1;
 let currentPage = 0;
 
-let purchasableIndexes = []
 
 register("guiMouseClick", (x, y, button, gui, event) => {
     if (Settings.invisibleShop && inBedwarsGame) {
@@ -30,7 +29,7 @@ register("guiMouseClick", (x, y, button, gui, event) => {
 
                 if (currentPage == 1) {
                     for (let k = 0; k < slotsPage1.length; k++) {
-                        if (typeof slotsPage1[k] != 'undefined' && !container.getStackInSlot(slotsPage1[k])) {
+                        if (typeof slotsPage1[k] != 'undefined' && (!container.getStackInSlot(slotsPage1[k]))) {
                             slotToReplace = slotsPage1[k];
                             indexOfSlotInList = k;
                             break;
@@ -39,7 +38,7 @@ register("guiMouseClick", (x, y, button, gui, event) => {
                 }
                 else if (currentPage == 2) {
                     for (let l = 0; l < slotsPage2.length; l++) {
-                        if (typeof slotsPage2[l] != 'undefined' && !container.getStackInSlot(slotsPage2[l])) {
+                        if (typeof slotsPage2[l] != 'undefined' && (!container.getStackInSlot(slotsPage2[l]))) {
                             slotToReplace = slotsPage2[l];
                             indexOfSlotInList = l;
                             break;
@@ -59,10 +58,10 @@ register("chat", (item) => {
             let hiddenItem = container.getStackInSlot(slotToReplace);
             if (hiddenItem) {
                 let mcItemName = convertItemName(item);
-                if (currentPage == 1 && foundItemsPage1[indexOfSlotInList] == "dye") {
+                if (currentPage == 1 && (foundItemsPage1[indexOfSlotInList] == "dye")) {
                     foundItemsPage1[indexOfSlotInList] = mcItemName;
                 }
-                else if (currentPage == 2 && foundItemsPage2[indexOfSlotInList] == "dye") {
+                else if (currentPage == 2 && (foundItemsPage2[indexOfSlotInList] == "dye")) {
                     foundItemsPage2[indexOfSlotInList] = mcItemName;
                 }
             }
@@ -71,10 +70,92 @@ register("chat", (item) => {
     
 }).setCriteria("You purchased ${item}")
 
-register("chat", (resource, amount) => {
-    slotToReplace = 19;
-    indexOfSlotInList = -1;
-}).setCriteria("You don't have enough ${resource}! Need ${amount} more!");
+
+register("chat", (resource, amountNeeded) => {
+    //slotToReplace = 19;
+    //indexOfSlotInList = -1;
+    if (Settings.invisibleShop && inBedwarsGame && currentPage != 0) {
+        new Thread(() => {
+            Thread.sleep(50)
+            let inv = Player.getInventory()
+            let items = inv.getItems();
+            let iron = 0;
+            let gold = 0;
+            let emeralds = 0;
+            items.forEach(item => {
+                if (item) {
+                    if (item.getName() == "Iron Ingot") {
+                        iron += item.getStackSize()
+                    }
+                    else if (item.getName() == "Gold Ingot") {
+                        gold += item.getStackSize()
+                    }
+                    else if (item.getName() == "Emerald") {
+                        emeralds += item.getStackSize()
+                    }
+                }
+            });
+
+            switch (resource) {
+                case "Iron":
+                    let ironItemPrice = parseInt(iron) + parseInt(amountNeeded)
+                    print(ironItemPrice)
+                    switch (ironItemPrice) {
+                        case 40:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:fire_charge"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:fire_charge"
+                            break;
+                        case 120:
+                            print("IRON GULEM")
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:spawn_egg"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:spawn_egg"
+                            break;
+                        case 20:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:shears"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:shears"
+                            break;
+                    }
+                    break;
+                case "Gold":
+                    let goldItemPrice = parseInt(gold) + parseInt(amountNeeded)
+                    switch (goldItemPrice) {
+                        case 3:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:golden_apple"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:golden_apple"
+                            break;
+                        case 5:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:stick"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:stick"
+                            break;
+                        
+                        case 7:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:iron_sword"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:iron_sword"
+                            break;
+                        case 20:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:bow"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:bow"
+                            break;
+                        
+                    }
+                    break;
+                case "Emerald":
+                case "Emeralds":
+                    let emeraldItemPrice = parseInt(emeralds) + parseInt(amountNeeded)
+                    switch (emeraldItemPrice) {
+                        case 2:
+                            if (currentPage == 1) foundItemsPage1[indexOfSlotInList] = "minecraft:potion"
+                            if (currentPage == 2) foundItemsPage2[indexOfSlotInList] = "minecraft:potion"
+                            break;
+                    }
+                    break;
+            }
+
+            slotToReplace = 19;
+            indexOfSlotInList = -1;
+        }).start()
+    }
+}).setCriteria("You don't have enough ${resource}! Need ${amountNeeded} more!");
 
 register("chat", () => {
     slotToReplace = 19;
@@ -96,33 +177,9 @@ register("guiRender", (x, y, gui) => {
                 currentPage = 0
             }
             setKnownItems();
-            setPurchasableItems();
         }
     }
 })
-
-register("guiOpened", (event) => {
-    if (Settings.invisibleShop && inBedwarsGame && Player.getContainer()) {
-        new Thread(() => {
-            Thread.sleep(20);
-            let container = Player.getContainer()
-            if (container.getName() == "Invisible Item Shop") {
-                if (currentPage == 1) {
-                    purchasableIndexes = []
-                    for (let i = 0; i < slotsPage1.length; i++) {
-                        let lore = container.getStackInSlot(slotsPage1[i]).getLore()[5];
-                        print(lore);
-                    }
-                }
-                else if (currentPage == 2) {
-                    let a = 3
-                }
-
-            }
-        }).start()
-    }
-})
-
 
 
 function highlightItem(x, y, highlightColor) {
@@ -130,40 +187,26 @@ function highlightItem(x, y, highlightColor) {
     Renderer.drawRect(highlightColor, x, y, 16, 16)
   }
 
-register('renderItemIntoGui', (item, x, y) => {
+register('renderItemIntoGui', (item, x, y, event) => {
     const inv = Player.getContainer();
     if (Settings.invisibleShop && inv.name == 'Invisible Item Shop') {
-        if (item.getLore()[5] == "§5§o§eClick to purchase!") {
+        let mainLore = item.getLore()[5]
+        let toolLore = item.getLore()[3]
+
+        if (!mainLore) return;
+        if (!toolLore) return;
+
+        if (mainLore == "§5§o§eClick to purchase!") {
             highlightItem(x, y, Renderer.GREEN)
         }
-        else if (item.getLore()[3] == "§5§o§eClick to purchase!") {
-            highlightItem(x, y, Renderer.GREEN)
+        else if (toolLore == "§5§o§eClick to purchase!") {
+            highlightItem(x, y, Renderer.color(50, 150, 50, 255))
         }
-        
+        else if (toolLore.includes("You don't have enough")) {
+            highlightItem(x, y, Renderer.RED)
+        }
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -209,15 +252,6 @@ function setKnownItems() {
                 Player.getContainer().getContainer().func_75141_a(slotsPage2[i], new Item(foundItemsPage2[i]).itemStack);
             }
         }
-    }
-}
-
-function setPurchasableItems() {
-    if (currentPage == 1) {
-
-    }
-    else if (currentPage == 2) {
-
     }
 }
 
