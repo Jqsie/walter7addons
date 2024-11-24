@@ -51,6 +51,15 @@ class Settings {
     })
     luckyBlockFix = false;
 
+    @SwitchProperty({
+        name: "Fix Double Hit Sound",
+        description: "fixes the hypixel bug that plays the hit sound twice when you take damage",
+        category: "Quality of Life",
+        subcategory: "Fix Double Hit Sound",
+        placeholder: "Activate"
+    })
+    fixDoubleHitSound = false;
+
     // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
