@@ -1,10 +1,11 @@
 import Settings from '../config';
 
 register("soundPlay", (pos, name, vol, pitch, cat, event) => {
-    print(pitch)
-    let dist = distance(pos.x, pos.y, pos.z, Player.getX(), Player.getY(), Player.getZ())
-    if (pitch == 1.0 && dist < 0.001) {
-        cancel(event)
+    if (Settings.fixDoubleHitSound) {
+        let dist = distance(pos.x, pos.y, pos.z, Player.getX(), Player.getY(), Player.getZ())
+        if (pitch == 1.0 && dist < 0.001) {
+            cancel(event)
+        }
     }
 }).setCriteria("game.player.hurt")
 
