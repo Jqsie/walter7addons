@@ -17,7 +17,6 @@ import './features/emeraldSpawn'
 import './features/invisibleShop'
 import './features/defusalHelper'
 import './features/blockDropping'
-import './features/fixDoubleHitSound'
 //import './features/blockHighlight'
 
 register("command", () => Settings.openGUI()).setName("walter");
