@@ -2,7 +2,6 @@ import Settings from '../config';
 
 let inCustomGui = false
 let queue = []
-//let clicked = false
 
 const C0EPacketClickWindow = Java.type("net.minecraft.network.play.client.C0EPacketClickWindow");
 const S2FPacketSetSlot = Java.type("net.minecraft.network.play.server.S2FPacketSetSlot");
@@ -40,14 +39,14 @@ register(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre, eve
     const inv = Player.getContainer();
     const windowSize = 54
 
+    if (!inv) return;
+
     if (inv.name == "§cC4 (Click §4§lREDSTONE§c)" && Settings.defusalCustomGui) {
         inCustomGui = true
         clickTrigger.register();
         cancel(event);
         const screenWidth = Renderer.screen.getWidth();
         const screenHeight = Renderer.screen.getHeight();
-        //console.log(screenWidth)
-        //console.log(screenHeight)
 
         const width = 9 * 18 * 1.3
         const height = 9 * 18
@@ -102,8 +101,6 @@ register(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre, eve
 
 const clickTrigger = register("guiMouseClick", (x, y, button, gui, event) => {
     if (inCustomGui) {
-        //ChatLib.chat("in custom gui, cancelling click")
-        //ChatLib.chat(`clicked at x:${x} y:${y}`)
         cancel(event)
         const inv = Player.getContainer();
         const windowId = inv.getWindowId();
@@ -122,7 +119,6 @@ const clickTrigger = register("guiMouseClick", (x, y, button, gui, event) => {
             let currentOffsetY = Math.floor(i / 9) * 24 + offsetY - 3;
             if (x >= currentOffsetX && x <= currentOffsetX + 22 && y >= currentOffsetY + 22 && y <= currentOffsetY + 44) {
                 slotClicked = i
-                //ChatLib.chat(`slot ${slotClicked} was clicked`)
                 if (inv.getStackInSlot(i) != null && inv.getStackInSlot(i).getRegistryName() == "minecraft:redstone") {
                     if (Settings.defusalHighPingMode) {
                         queue.push([slotClicked])
@@ -145,21 +141,5 @@ register("guiClosed", () => {
 })
 
 function click(slot, windowId) {
-    //clicked = true;
     Client.sendPacket(new C0EPacketClickWindow(windowId, slot, 2, 3, null, 0))
-    //setTimeout(() => {
-		//if (!inTerminal || initialWindowId !== cwid) return;
-		//queue.pop();
-		//clicked = false;
-	//}, Settings.defusalTimeout);
 }
-
-//register("packetReceived", (packet, event) => {
-    //const itemStack = packet.func_149174_e();
-	//const slot = packet.func_149173_d();
-	//const windowID = packet.func_149175_c();
-
-
-//}).setFilteredClass(S2FPacketSetSlot).unregister();
-
-// in the middle of trying to detect slot changes server-side, timeout based on settings, and then process the rest of the clicks
