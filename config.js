@@ -161,8 +161,17 @@ class Settings {
     defusalMiddleClick = false;
 
     @SwitchProperty({
+        name: "Defusal Custom GUI",
+        description: "uses a custom gui for the defusal challenge (use at your own risk)",
+        category: "Bedwars",
+        subcategory: "Defusal Helper",
+        placeholder: "Activate"
+    })
+    defusalCustomGui = false;
+
+    @SwitchProperty({
         name: "Block Incorrect Defusal Clicks",
-        description: "blocks incorrect clicks (most of the time)",
+        description: "blocks incorrect clicks (most of the time, use at your own risk)",
         category: "Bedwars",
         subcategory: "Defusal Helper",
         placeholder: "Activate"
@@ -258,6 +267,7 @@ class Settings {
         this.addDependency("Sponge", "Remove Particles")
         this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")
         this.addDependency("Defusal Middle Clicks", "Defusal Helper")
+        this.addDependency("Defusal Custom GUI", "Defusal Helper")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');

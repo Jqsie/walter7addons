@@ -6,7 +6,7 @@ register("packetSent", (packet, event) => {
     if (Settings.blockDropping) {
         const item = Player.getHeldItem();
         if (item != null) {
-            const itemName = item.getRegistryName()
+            var itemName = item.getRegistryName()
         }
         const status = packet.func_180762_c() // getStatus
         if (Settings.blockDropping && status == "DROP_ITEM" && item != null) {
