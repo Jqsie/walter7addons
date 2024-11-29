@@ -153,7 +153,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Defusal Custom GUI",
-        description: "uses a custom gui for the defusal challenge (low ping only)",
+        description: "uses a custom gui for the defusal challenge (use at your own risk)",
         category: "Bedwars",
         subcategory: "Defusal Helper",
         placeholder: "Activate"
@@ -162,7 +162,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Block Incorrect Defusal Clicks",
-        description: "blocks incorrect clicks (most of the time)",
+        description: "blocks incorrect clicks (most of the time, use at your own risk)",
         category: "Bedwars",
         subcategory: "Defusal Helper",
         placeholder: "Activate"
