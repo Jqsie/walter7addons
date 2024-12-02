@@ -74,7 +74,7 @@
 		defusal_helper = true
 
 	[bedwars.invisible_shop]
-		invisible_shop = false
+		invisible_shop = true
 
 	[bedwars.emerald_timer]
 		emerald_timer = true
@@ -89,6 +89,9 @@
 
 	[quality_of_life.better_tab]
 		better_tab = true
+
+	[quality_of_life.fix_double_hit_sound]
+		fix_double_hit_sound = false
 
 	[quality_of_life.mute_own_steps]
 		mute_own_steps = true
