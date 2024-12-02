@@ -18,10 +18,13 @@ ChatTriggers module with some random and sometimes helpful things
   - Displays a timer on-screen that shows when the next emeralds will spawn and how many total emerald spawns there have been.
 - **Invisible Shop**
   - Reveals the items you have purchased during the Invisible Shop Challenge.
+  - Predicts some items in certain slots based on how many resources you need to purchase the item.
+  - Highlights purchasable items.
 - **Defusal Helper**
   - Highlights the correct items to click during the Defusal Challenge.
   - Option to block incorrect clicks.
   - Option to replace your clicks with middle clicks.
+  - Option for a custom defusal GUI.
 - **Block Dropping**
   - Stops you from dropping the Bow.
   - Also stops you from dropping Swords in Skywars.
