@@ -20,6 +20,7 @@ ChatTriggers module with some random and sometimes helpful things
   - Reveals the items you have purchased during the Invisible Shop Challenge.
   - Predicts some items in certain slots based on how many resources you need to purchase the item.
   - Highlights purchasable items.
+  - (Currently only works in Solos/Doubles and for the Item Shop, not the Upgrades Shop)
 - **Defusal Helper**
   - Highlights the correct items to click during the Defusal Challenge.
   - Option to block incorrect clicks.
