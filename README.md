@@ -28,6 +28,10 @@ ChatTriggers module with some random and sometimes helpful things
 - **Block Dropping**
   - Stops you from dropping the Bow.
   - Also stops you from dropping Swords in Skywars.
+- **Show Distance Shot**
+  - Shows the distance you shot a player from.
+  - Works in Bedwars, Skywars and sometimes duels.
+  - (currently doesn't work on the killing shot in bedwars or duels)
 
 ### Quality of Life
 - **Better Tab**
