@@ -88,7 +88,7 @@ register("worldLoad", () => {
 });
 
 function updateScoreboard() {
-    Scoreboard.setLine(0, `§2Emeralds (${spawnCount}): ${timeUntilEmerald.toString()}`, true)
+    Scoreboard.setLine(0, `§aEmeralds (§f${spawnCount}§a): §7${timeUntilEmerald.toString()}`, true)
 }
 
 function bedwarsCheck () {

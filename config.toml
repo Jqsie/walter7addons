@@ -57,12 +57,15 @@
 		glyphs = true
 
 	[bedwars.out_of_arrows_reminder]
-		out_of_arrows_reminder = true
+		out_of_arrows_reminder = false
 
 	[bedwars.block_item_dropping]
 		block_item_dropping = true
 		bows = true
 		swords = true
+
+	[bedwars.show_distance_shot]
+		show_distance_shot = true
 
 	[bedwars.jump_boost_reminder]
 		jump_boost_reminder = true
@@ -88,7 +91,7 @@
 		lucky_block_enhancements = false
 
 	[quality_of_life.better_tab]
-		better_tab = true
+		better_tab = false
 
 	[quality_of_life.fix_double_hit_sound]
 		fix_double_hit_sound = false

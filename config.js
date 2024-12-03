@@ -203,6 +203,15 @@ class Settings {
     })
     blockBows = false;
 
+    @SwitchProperty({
+        name: "Show Distance Shot",
+        description: "shows the distance you shot your opponent from (works in skywars and sometimes in duels)",
+        category: "Bedwars",
+        subcategory: "Show Distance Shot",
+        placeholder: "Activate"
+    })
+    arrowDistance = false;
+
     // Random
     @SwitchProperty({
         name: "Dynamic FOV",
