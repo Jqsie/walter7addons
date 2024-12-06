@@ -56,3 +56,8 @@ ChatTriggers module with some random and sometimes helpful things
   - Makes your FOV zoom in and out heaps (may give headaches, fun challenge).
 - **Music Disc**
   - Plays a Music Disc at your current location on world load.
+
+## Special Thanks
+**[diboof](https://www.youtube.com/@diboof)** ([watermelob](https://github.com/watermelob)) - Co-Author
+**[Ninjune](https://github.com/Ninjune)** - [Coleweight](https://github.com/Ninjune/coleweight) was a major help in creating Mineshaft Party
+**[soshimee](https://github.com/soshimee)** - [soshimeeAddons](https://github.com/soshimee/soshimeeaddons) was a major help in creating Defusal Helper
