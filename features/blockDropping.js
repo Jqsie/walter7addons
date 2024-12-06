@@ -8,7 +8,7 @@ register("packetSent", (packet, event) => {
         if (item != null) {
             var itemName = item.getRegistryName()
         }
-        const status = packet.func_180762_c() // getStatus
+        const status = packet.func_180762_c()
         if (Settings.blockDropping && status == "DROP_ITEM" && item != null) {
             if (Settings.blockSwords && item.getRegistryName().includes("sword")) {
                 cancel(event)

@@ -7,7 +7,6 @@ const records = ["records.11", "records.13", "records.blocks", "records.cat",
 
 register("worldLoad", () => {
     if (Settings.musicDisc) {
-        // console.log('hello!')
         new Thread(() => {
             Thread.sleep(100);
             World.playRecord(records[Math.round(Math.random() * records.length)], Player.getX(), Player.getY(), Player.getZ());

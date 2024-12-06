@@ -51,15 +51,6 @@ class Settings {
     })
     luckyBlockFix = false;
 
-    @SwitchProperty({
-        name: "Fix Double Hit Sound",
-        description: "fixes the hypixel bug that plays the hit sound twice when you take damage",
-        category: "Quality of Life",
-        subcategory: "Fix Double Hit Sound",
-        placeholder: "Activate"
-    })
-    fixDoubleHitSound = false;
-
     // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
@@ -90,7 +81,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Slumber Hotel",
-        description: "keeps your mouse in the correct spot when using the ticket machine and some npcs (MAKE SURE YOU'RE IN FULLSCREEN 1080P + LARGE GUI SCALE)",
+        description: "puts your mouse in the correct spot when using the ticket machine and some npcs (MAKE SURE YOU'RE IN FULLSCREEN 1080P + AUTO GUI SCALE)",
         category: "Bedwars",
         subcategory: "Slumber Hotel",
         placeholder: 'Activate'
@@ -126,7 +117,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Emerald Timer",
-        description: "shows the time until next emerald spawn",
+        description: "shows the time until next emerald spawn and total emerald spawns in scoreboard",
         category: "Bedwars",
         subcategory: "Emerald Timer",
         placeholder: "Activate"
@@ -135,7 +126,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Invisible Shop",
-        description: "reveals items after they are purchased during the invisible shop challenge",
+        description: "reveals items after they are purchased during the invisible shop challenge (solos/doubles only right now)",
         category: "Bedwars",
         subcategory: "Invisible Shop",
         placeholder: "Activate"
@@ -205,7 +196,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Show Distance Shot",
-        description: "shows the distance you shot your opponent from (works in skywars and sometimes in duels)",
+        description: "shows the distance you shot your opponent from (currently doesn't give the distance on kill)",
         category: "Bedwars",
         subcategory: "Show Distance Shot",
         placeholder: "Activate"
@@ -224,7 +215,7 @@ class Settings {
 
     @SliderProperty({
         name: "Normal FOV",
-        description: "set this to ur usual FOV (should detect it on first install?)",
+        description: "set this to ur usual FOV (should detect it on first install)",
         category: "Random",
         subcategory: "Dynamic FOV",
         min: 30,
@@ -235,12 +226,21 @@ class Settings {
     // Skyblock
     @SwitchProperty({
         name: "Fishing Timer",
-        description: "moves the fishing timer from above the bobber to the middle of your screen",
+        description: "moves the fishing timer from above the bobber to the middle of your screen (MIGHT BE REALLY LAGGY, TRYING TO FIX)",
         category: "Skyblock",
         subcategory: "Fishing Timer",
         placeholder: 'Activate'
     })
     fishingTimer = false;
+
+    @SelectorProperty({
+        name: 'Fishing Timer Size',
+        description: 'change the size of the text on screen',
+        category: 'Skyblock',
+        subcategory: 'Fishing Timer',
+        options: ['small', 'medium', 'large', 'much larger'],
+    })
+    fishingTimerSize = 0;
 
     @SwitchProperty({
         name: "Mineshaft Party",
@@ -259,15 +259,6 @@ class Settings {
         options: ['lapis', 'vanguard', 'lapis + vanguard'],
     })
     mineshaftPartySetting = 0;
-
-    @SelectorProperty({
-        name: 'Fishing Timer Size',
-        description: 'change the size of the text on screen',
-        category: 'Skyblock',
-        subcategory: 'Fishing Timer',
-        options: ['small', 'medium', 'large', 'much larger'],
-    })
-    fishingTimerSize = 0;
 
     constructor() {
         this.initialize(this);

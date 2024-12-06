@@ -36,12 +36,12 @@ function vanguardMineshaft() {
     }).start()
 }
 
-register("chat", (diep) => {
+register("chat", () => {
     dontWarp = true
     console.log("warping off")
 }).setCriteria(": !c").setContains();
 
-register("chat", (diep) => {
+register("chat", () => {
     dontWarp = false
     corpsesDetected = false
     console.log("warping on")

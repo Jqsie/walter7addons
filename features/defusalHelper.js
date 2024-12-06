@@ -1,10 +1,8 @@
 import Settings from '../config';
 
 let inCustomGui = false
-let queue = []
 
 const C0EPacketClickWindow = Java.type("net.minecraft.network.play.client.C0EPacketClickWindow");
-const S2FPacketSetSlot = Java.type("net.minecraft.network.play.server.S2FPacketSetSlot");
 
 
 function highlightItem(x, y, highlightColor) {
@@ -90,7 +88,6 @@ register(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre, eve
         }
 
         if (checkCompletion) {
-            Client.currentGui.close();
             clickTrigger.unregister();
             inCustomGui = false
 
@@ -120,11 +117,7 @@ const clickTrigger = register("guiMouseClick", (x, y, button, gui, event) => {
             if (x >= currentOffsetX && x <= currentOffsetX + 22 && y >= currentOffsetY + 22 && y <= currentOffsetY + 44) {
                 slotClicked = i
                 if (inv.getStackInSlot(i) != null && inv.getStackInSlot(i).getRegistryName() == "minecraft:redstone") {
-                    if (Settings.defusalHighPingMode) {
-                        queue.push([slotClicked])
-                    } else {
-                        click(slotClicked, windowId)
-                    }
+                    click(slotClicked, windowId)
                 }
             }
         }

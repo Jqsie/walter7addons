@@ -18,7 +18,6 @@ import './features/invisibleShop'
 import './features/defusalHelper'
 import './features/blockDropping'
 import './features/arrowDistance'
-//import './features/blockHighlight'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
