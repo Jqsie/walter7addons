@@ -39,8 +39,8 @@
 [skyblock]
 
 	[skyblock.fishing_timer]
-		fishing_timer = true
-		fishing_timer_size = 0
+		fishing_timer = false
+		fishing_timer_size = 2
 
 	[skyblock.mineshaft_party]
 		warp_settings = 2
