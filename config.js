@@ -80,15 +80,6 @@ class Settings {
     miningFatigueReminder = false;
 
     @SwitchProperty({
-        name: "Slumber Hotel",
-        description: "puts your mouse in the correct spot when using the ticket machine and some npcs (MAKE SURE YOU'RE IN FULLSCREEN 1080P + AUTO GUI SCALE)",
-        category: "Bedwars",
-        subcategory: "Slumber Hotel",
-        placeholder: 'Activate'
-    })
-    slumberHotel = false;
-
-    @SwitchProperty({
         name: "Remove Particles",
         description: "removes certain particles from bedwars",
         category: "Bedwars",
