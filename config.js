@@ -251,6 +251,15 @@ class Settings {
     })
     mineshaftPartySetting = 0;
 
+    @SwitchProperty({
+        name: "Glacial Cave EP Ice Finder",
+        description: "detects if theres enchanted packed ice in the glacial cave walls, and draws a waypoint to it",
+        category: "Skyblock",
+        subcategory: "Glacial Cave",
+        placeholder: 'Activate'
+    })
+    glacialCave = false;
+
     constructor() {
         this.initialize(this);
         this.addDependency("Fishing Timer Size", "Fishing Timer")

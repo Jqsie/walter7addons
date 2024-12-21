@@ -38,6 +38,9 @@
 
 [skyblock]
 
+	[skyblock.glacial_cave]
+		glacial_cave_ep_ice_finder = true
+
 	[skyblock.fishing_timer]
 		fishing_timer = false
 		fishing_timer_size = 2

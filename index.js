@@ -17,6 +17,7 @@ import './features/invisibleShop'
 import './features/defusalHelper'
 import './features/blockDropping'
 import './features/arrowDistance'
+import './features/glacialCave'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
