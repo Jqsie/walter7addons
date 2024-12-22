@@ -15,14 +15,14 @@ register("step", () => {
                 let bootName = new EntityLivingBase(entities[i].getEntity()).getItemInSlot(4)?.getRegistryName()
                 if (bootName != null) {
                     let bootNBTName = new EntityLivingBase(entities[i].getEntity()).getItemInSlot(4)?.getItemNBT()?.getCompoundTag("tag")?.getCompoundTag("ExtraAttributes").getString("id")
-                    if (bootNBTName == "ENCHANTED_ICE" && !iceDetected) {
+                    if (bootNBTName == "ENCHANTED_PACKED_ICE" && !iceDetected) {
                         j = 100000
                         iceX = Math.floor(entities[i].getX())
                         iceY = Math.floor(entities[i].getY()) + 2
                         iceZ = Math.floor(entities[i].getZ())
-                    } else if (bootNBTName != "ENCHANTED_ICE") {
+                    } else if (bootNBTName != "ENCHANTED_PACKED_ICE") {
                         j = j+1
-                    } else if (bootNBTName == "ENCHANTED_ICE" && iceDetected) {
+                    } else if (bootNBTName == "ENCHANTED_PACKED_ICE" && iceDetected) {
                         j = -10000
                         iceX = Math.floor(entities[i].getX())
                         iceY = Math.floor(entities[i].getY()) + 2
