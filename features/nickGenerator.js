@@ -22,7 +22,7 @@ const bookListener = register("guiOpened", () => {
         Client.currentGui.close();
 
         new Message([
-            new TextComponent(`&8Found: &b&l${nick}&r&a: &r`),
+            new TextComponent(`&8Found: &b&l${nick}&r `),
             new TextComponent(`&a&l[ACCEPT] `)
                 .setHoverValue(`&aChange your nick to &r&b${nick}&r&a.`)
                 .setClick("run_command", `/nick actuallyset ${nick} respawn`),
