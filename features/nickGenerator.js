@@ -1,8 +1,8 @@
-import Settings from '../config';
+import request from "../../requestV2"
 
 let nick = "Max_Epic"
 
-const bind = new KeyBind("Generate Nick", Keyboard.KEY_RETURN, "walter7addons")
+const bind = new KeyBind("Generate Nick", Keyboard.KEY_NONE, "walter7addons")
 
 bind.registerKeyPress(() => {
     ChatLib.command("nick help setrandom")
@@ -22,12 +22,44 @@ const bookListener = register("guiOpened", () => {
         Client.currentGui.close();
 
         new Message([
-            new TextComponent(`&aFound: &b&l${nick}&r&a: &r`),
-            new TextComponent(`&a&l[ACCEPT]`)
-                .setClick("run_command", `/nick actuallyset ${nick} respawn`)
+            new TextComponent(`&8Found: &b&l${nick}&r&a: &r`),
+            new TextComponent(`&a&l[ACCEPT] `)
+                .setHoverValue(`&aChange your nick to &r&b${nick}&r&a.`)
+                .setClick("run_command", `/nick actuallyset ${nick} respawn`),
+            new TextComponent(`&d&l[CHECK CAPE]`)
+                .setHoverValue(`&aChecks to see if &r&b${nick}&r&a has a cape. Don't use this too often.`)
+                .setClick("run_command", `/findcape ${nick}`)
         ]).chat();
     }).start();
 
     bookListener.unregister();
 
 }).unregister();
+
+register("command", (username) => {
+    if (username == undefined) { ChatLib.chat(`&8Requires a username!`); return }
+    request({
+        url: `https://api.mojang.com/users/profiles/minecraft/${username}`,
+        json: true
+    })
+    .then(() => {
+        request({
+            url: `https://api.capes.dev/load/${username}/optifine`,
+            json: true
+        })
+        .then((capeRes) => {
+            if (!capeRes["exists"]) { ChatLib.chat(`&b${username} &r&8likely has no cape.`) }
+            if (capeRes["exists"]) { ChatLib.chat(`&b${username} &r&8has an &r&dOptifine &r&8cape!`) }
+        })
+        .catch(err => {
+            ChatLib.chat(`&b${username} &r&8likely has no cape.`)
+        })
+    })
+    .catch(err => {
+        ChatLib.chat(`&b${username} &r&8 does not exist!`)
+    })
+}).setName("findcape")
+
+register("chat", (event) => {
+    cancel(event)
+}).setChatCriteria("Generating a unique random name. Please wait...")
