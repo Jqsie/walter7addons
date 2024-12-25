@@ -18,6 +18,7 @@ import './features/defusalHelper'
 import './features/blockDropping'
 import './features/arrowDistance'
 import './features/glacialCave'
+import './features/nickGenerator'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
