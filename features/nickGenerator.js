@@ -9,7 +9,6 @@ const bind = new KeyBind("Generate Nick", Keyboard.KEY_RETURN, "walter7addons")
 bind.registerKeyPress(() => {
     if (Settings.nickGenerator) {
         ChatLib.command("nick help setrandom")
-        bookGuiDrawer.register();
         bookListener.register();
     }
 })
