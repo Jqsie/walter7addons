@@ -14,11 +14,6 @@ bind.registerKeyPress(() => {
     }
 })
 
-const bookGuiDrawer = register(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre, event => {
-    cancel(event)
-    bookGuiDrawer.unregister();
-}).unregister();
-
 const bookListener = register("guiOpened", () => {
     new Thread(() => {
         Thread.sleep(1);
