@@ -99,6 +99,10 @@
 	[quality_of_life.fix_double_hit_sound]
 		fix_double_hit_sound = false
 
+	[quality_of_life.nick_generator]
+		display_title = true
+		nick_generator = true
+
 	[quality_of_life.mute_own_steps]
 		mute_own_steps = true
 

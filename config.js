@@ -51,6 +51,24 @@ class Settings {
     })
     luckyBlockFix = false;
 
+    @SwitchProperty({
+        name: "Nick Generator",
+        description: "lets you press a hotkey to generate a nick and put it in the chat so you can continue running around",
+        category: "Quality of Life",
+        subcategory: "Nick Generator",
+        placeholder: 'Activate'
+    })
+    nickGenerator = false;
+
+    @SwitchProperty({
+        name: "Display Title",
+        description: "displays a title with the nick so it's a bit easier to see",
+        category: "Quality of Life",
+        subcategory: "Nick Generator",
+        placeholder: 'Activate'
+    })
+    displayTitle = false;
+
     // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
@@ -268,6 +286,7 @@ class Settings {
         this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")
         this.addDependency("Defusal Middle Clicks", "Defusal Helper")
         this.addDependency("Defusal Custom GUI", "Defusal Helper")
+        this.addDependency("Display Title", "Nick Generator")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');

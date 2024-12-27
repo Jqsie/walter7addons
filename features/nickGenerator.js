@@ -1,14 +1,22 @@
+import Settings from '../config';
 import request from "../../requestV2"
 
 let nick = "Max_Epic"
+const regex = /\bmax_[a-z]+\b/i;
 
-const bind = new KeyBind("Generate Nick", Keyboard.KEY_NONE, "walter7addons")
+const bind = new KeyBind("Generate Nick", Keyboard.KEY_RETURN, "walter7addons")
 
 bind.registerKeyPress(() => {
-    ChatLib.command("nick help setrandom")
-
-    bookListener.register();
+    if (Settings.nickGenerator) {
+        ChatLib.command("nick help setrandom")
+        bookGuiDrawer.register();
+        bookListener.register();
+    }
 })
+
+const bookGuiDrawer = register(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre, event => {
+    cancel(event)
+}).unregister();
 
 const bookListener = register("guiOpened", () => {
     new Thread(() => {
@@ -21,6 +29,20 @@ const bookListener = register("guiOpened", () => {
         const nick = ChatLib.removeFormatting(pages[1]);
         Client.currentGui.close();
 
+        if (Settings.displayTitle) {
+            if (nick.match(regex)) {
+                Client.showTitle(`&d${nick}`, "", 0, 100, 0)
+                new Thread(() => {
+                    World.playSound("note.pling", 1.0, 1.0)
+                    Thread.sleep(200)
+                    World.playSound("note.pling", 1.0, 1.0)
+                    Thread.sleep(200)
+                    World.playSound("note.pling", 1.0, 1.0)
+                }).start()
+            } else { Client.showTitle(`&b${nick}`, "", 0, 100, 0) }
+            
+        }
+        
         new Message([
             new TextComponent(`&8Found: &b&l${nick}&r `),
             new TextComponent(`&a&l[ACCEPT] `)
