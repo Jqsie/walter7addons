@@ -43,6 +43,11 @@ ChatTriggers module with some random and sometimes helpful things
   - Removes some annoying titles such as "Ninja Mode".
 - **Mute Own Steps**
   - Mutes the stepping sounds that come from you. Makes it easier to focus on the footsteps around you.
+- **Nick Generator**
+  - Press a keybind to generate a nick, displays the result in chat instead so you can keep running around and not get AFKed.
+  - Lets you check to see if the nick will have an Optifine Cape.
+- **Health Indicator**
+  - Displays the health of the opponent you are currently fighting right above your crosshair.
  
 ### Skyblock
 - **Fishing Timer**
@@ -50,12 +55,28 @@ ChatTriggers module with some random and sometimes helpful things
 - **Mineshaft Party**
   - Automatically warps the party into your Mineshaft if you get 3-4 Lapis corpses or a Vanguard.
   - Requires party members to have !pt chat commands (not included in this).
+- **Enchanted Packed Ice Finder**
+  - Finds Enchanted Packed Ice inside of the Jerry Island Cave.
 
 ### Random
 - **Dynamic FOV**
   - Makes your FOV zoom in and out heaps (may give headaches, fun challenge).
 - **Music Disc**
   - Plays a Music Disc at your current location on world load.
+ 
+## Planned Features
+- **Cheater Detector**
+  - Will try to find any cheaters in your game with Autoblock, Scaffold and NoSlowdown checks.
+  - Goal is to make this much more reliable and faster than Mega Walls Enhancements.
+- **Coloured Dragons**
+  - Coloured hitboxes around Dragons that indicate which teams Dragons they are in Bedwars Deathmatch.
+- **Stats Overlay**
+  - Show players stats after the game starts in Bedwars in Tablist.
+  - Show players stats before the game starts in Skywars
+  - Potentially add a warning on some players who are likely cheating due to their statistics?
+- **Diamond Timer**
+  - Recreate the Emerald Timer, but for Diamonds instead.
+  - Hasn't been made because it's not exactly super useful besides in Ranked.
 
 ## Special Thanks
 - **[diboof](https://www.youtube.com/@diboof)** ([watermelob](https://github.com/watermelob)) - Co-Author
