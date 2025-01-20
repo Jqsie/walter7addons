@@ -17,6 +17,9 @@ import './features/invisibleShop'
 import './features/defusalHelper'
 import './features/blockDropping'
 import './features/arrowDistance'
+import './features/glacialCave'
+import './features/nickGenerator'
+import './features/healthIndicator'
 
 register("command", () => Settings.openGUI()).setName("walter");
 

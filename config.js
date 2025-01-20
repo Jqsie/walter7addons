@@ -51,6 +51,42 @@ class Settings {
     })
     luckyBlockFix = false;
 
+    @SwitchProperty({
+        name: "Nick Generator",
+        description: "lets you press a hotkey to generate a nick and put it in the chat so you can continue running around",
+        category: "Quality of Life",
+        subcategory: "Nick Generator",
+        placeholder: 'Activate'
+    })
+    nickGenerator = false;
+
+    @SwitchProperty({
+        name: "Display Title",
+        description: "displays a title with the nick so it's a bit easier to see",
+        category: "Quality of Life",
+        subcategory: "Nick Generator",
+        placeholder: 'Activate'
+    })
+    displayTitle = false;
+
+    @SwitchProperty({
+        name: "Health Indicator",
+        description: "displays the health of the current player you are fighting to right above the crosshair",
+        category: "Quality of Life",
+        subcategory: "Health Indicator",
+        placeholder: 'Activate'
+    })
+    healthIndicator = false;
+
+    @SelectorProperty({
+        name: 'Health Indicator Size',
+        description: 'change the size of the text on screen',
+        category: 'Quality of Life',
+        subcategory: 'Health Indicator',
+        options: ['small', 'medium', 'large', 'much larger'],
+    })
+    healthIndicatorTextSize = 0;
+
     // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
@@ -251,14 +287,25 @@ class Settings {
     })
     mineshaftPartySetting = 0;
 
+    @SwitchProperty({
+        name: "Glacial Cave EP Ice Finder",
+        description: "detects if theres enchanted packed ice in the glacial cave walls, and draws a waypoint to it",
+        category: "Skyblock",
+        subcategory: "Glacial Cave",
+        placeholder: 'Activate'
+    })
+    glacialCave = false;
+
     constructor() {
         this.initialize(this);
         this.addDependency("Fishing Timer Size", "Fishing Timer")
+        this.addDependency("Health Indicator Size", "Health Indicator")
         this.addDependency("Glyphs", "Remove Particles")
         this.addDependency("Sponge", "Remove Particles")
         this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")
         this.addDependency("Defusal Middle Clicks", "Defusal Helper")
         this.addDependency("Defusal Custom GUI", "Defusal Helper")
+        this.addDependency("Display Title", "Nick Generator")
         this.setCategoryDescription('QoL', 'quality of life stuff, some of this is probably useful');
         this.setCategoryDescription('Random', 'just some random funny stuff u probably dont want on all the time');
         this.setCategoryDescription('Skyblock', 'cool skyblock stuff u might want');

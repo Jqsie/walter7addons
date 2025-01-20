@@ -38,6 +38,9 @@
 
 [skyblock]
 
+	[skyblock.glacial_cave]
+		glacial_cave_ep_ice_finder = false
+
 	[skyblock.fishing_timer]
 		fishing_timer = false
 		fishing_timer_size = 2
@@ -95,6 +98,14 @@
 
 	[quality_of_life.fix_double_hit_sound]
 		fix_double_hit_sound = false
+
+	[quality_of_life.health_indicator]
+		health_indicator = true
+		health_indicator_size = 0
+
+	[quality_of_life.nick_generator]
+		display_title = true
+		nick_generator = true
 
 	[quality_of_life.mute_own_steps]
 		mute_own_steps = true

@@ -11,11 +11,11 @@ register("spawnParticle", (particle, type, event) => {
 
         if (inBedwarsGame && type.toString() == "REDSTONE" && Settings.removeGlyphs) {
             for (j = 0; j < players.length; j++) {
-                if (players[j].distanceTo(particle) > 3) {
-                    cancel(event);
+                if (players[j].distanceTo(particle) < 3) {
                     return;
                 }                 
             }
+            cancel(event);
         }
 
         if (inBedwarsGame && type.toString() == "CLOUD" && Settings.removeSponge) {
