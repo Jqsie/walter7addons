@@ -80,5 +80,5 @@ ChatTriggers module with some random and sometimes helpful things
 
 ## Special Thanks
 - **[diboof](https://www.youtube.com/@diboof)** ([watermelob](https://github.com/watermelob)) - Co-Author
-- **[Ninjune](https://github.com/Ninjune)** - [Coleweight](https://github.com/Ninjune/coleweight) was a major help in creating Mineshaft Party
+- **[Ninjune](https://github.com/Ninjune)** - [Coleweight](https://github.com/Ninjune/coleweight) was a major help in creating Mineshaft Party, stole renderUtil from there too (some of it from Soopy)
 - **[soshimee](https://github.com/soshimee)** - [soshimeeAddons](https://github.com/soshimee/soshimeeaddons) was a major help in creating Defusal Helper
