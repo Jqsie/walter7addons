@@ -99,6 +99,10 @@
 	[quality_of_life.fix_double_hit_sound]
 		fix_double_hit_sound = false
 
+	[quality_of_life.health_indicator]
+		health_indicator = true
+		health_indicator_size = 0
+
 	[quality_of_life.nick_generator]
 		display_title = true
 		nick_generator = true

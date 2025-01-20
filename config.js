@@ -69,6 +69,24 @@ class Settings {
     })
     displayTitle = false;
 
+    @SwitchProperty({
+        name: "Health Indicator",
+        description: "displays the health of the current player you are fighting to right above the crosshair",
+        category: "Quality of Life",
+        subcategory: "Health Indicator",
+        placeholder: 'Activate'
+    })
+    healthIndicator = false;
+
+    @SelectorProperty({
+        name: 'Health Indicator Size',
+        description: 'change the size of the text on screen',
+        category: 'Quality of Life',
+        subcategory: 'Health Indicator',
+        options: ['small', 'medium', 'large', 'much larger'],
+    })
+    healthIndicatorTextSize = 0;
+
     // Bedwars
     @SwitchProperty({
         name: "Out of Arrows Reminder",
@@ -281,6 +299,7 @@ class Settings {
     constructor() {
         this.initialize(this);
         this.addDependency("Fishing Timer Size", "Fishing Timer")
+        this.addDependency("Health Indicator Size", "Health Indicator")
         this.addDependency("Glyphs", "Remove Particles")
         this.addDependency("Sponge", "Remove Particles")
         this.addDependency("Block Incorrect Defusal Clicks", "Defusal Helper")

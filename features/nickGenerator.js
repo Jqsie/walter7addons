@@ -1,8 +1,7 @@
 import Settings from '../config';
 import request from "../../requestV2"
 
-let nick = "Max_Epic"
-const regex = /\bmax_[a-z]+\b/i;
+let nick = "Not_Real_Nick"
 
 const bind = new KeyBind("Generate Nick", Keyboard.KEY_RETURN, "walter7addons")
 
@@ -25,17 +24,7 @@ const bookListener = register("guiOpened", () => {
         Client.currentGui.close();
 
         if (Settings.displayTitle) {
-            if (nick.match(regex)) {
-                Client.showTitle(`&d${nick}`, "", 0, 100, 0)
-                new Thread(() => {
-                    World.playSound("note.pling", 1.0, 1.0)
-                    Thread.sleep(200)
-                    World.playSound("note.pling", 1.0, 1.0)
-                    Thread.sleep(200)
-                    World.playSound("note.pling", 1.0, 1.0)
-                }).start()
-            } else { Client.showTitle(`&b${nick}`, "", 0, 100, 0) }
-            
+           Client.showTitle(`&b${nick}`, "", 0, 100, 0)
         }
         
         new Message([
@@ -61,12 +50,10 @@ register("command", (username) => {
     })
     .then(() => {
         request({
-            url: `https://api.capes.dev/load/${username}/optifine`,
-            json: true
+            url: `http://s.optifine.net/capes/${username}.png`,
         })
         .then((capeRes) => {
-            if (!capeRes["exists"]) { ChatLib.chat(`&b${username} &r&8likely has no cape.`) }
-            if (capeRes["exists"]) { ChatLib.chat(`&b${username} &r&8has an &r&dOptifine &r&8cape!`) }
+            if (capeRes) { ChatLib.chat(`&b${username} &r&8has an &r&dOptifine &r&8cape!`) }
         })
         .catch(err => {
             ChatLib.chat(`&b${username} &r&8likely has no cape.`)

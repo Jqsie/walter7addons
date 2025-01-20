@@ -19,6 +19,7 @@ import './features/blockDropping'
 import './features/arrowDistance'
 import './features/glacialCave'
 import './features/nickGenerator'
+import './features/healthIndicator'
 
 register("command", () => Settings.openGUI()).setName("walter");
 
